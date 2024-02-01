@@ -92,16 +92,17 @@ def sign_generator(df):
 def get_bars_in_real_time():
     try:
         wss_client = StockDataStream(api_key=api_key, secret_key=api_secret) # This create a websocket connection to the Alpaca API and return data in realtime
-        async def quote_data_handler(data):
+        async def bar_data_handler(data):
             # bars data will arrive here
             # print(f"Symbol: {data['symbol']}, Open: {data['open']}, Close: {data['close']}")
             data_values = json.dumps(data)
             print(data_values)
 
-        wss_client.subscribe_bars(quote_data_handler, "AAPL")
+        wss_client.subscribe_bars(bar_data_handler, "AAPL")
         wss_client.run()
     except Exception as e:
         print(e)
+get_bars_in_real_time()
 
 
 
