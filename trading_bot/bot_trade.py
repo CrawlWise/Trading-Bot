@@ -139,8 +139,8 @@ class Trade:
             async def bar_data_handler(data):
                 # bars data will arrive here.
                 # print(f"Symbol: {data['symbol']}, Open: {data['open']}, Close: {data['close']}")
-                data_values = json.dumps(data)
-                print(data_values)
+                # data_values = json.dumps(data)
+                print(data)
 
             wss_client.subscribe_bars(bar_data_handler, "SPY")
             wss_client.run()
@@ -149,3 +149,4 @@ class Trade:
 
 trade_bot = Trade()
 trade_bot.get_bars_in_real_time()
+#trade_bot.buy_Sell_market_stock("SPY", 1, OrderSide.SELL, TimeInForce.DAY)
