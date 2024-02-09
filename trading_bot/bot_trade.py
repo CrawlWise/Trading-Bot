@@ -137,7 +137,7 @@ class Trade:
         try:
             wss_client = StockDataStream(api_key=api_key, secret_key=api_secret) # This create a websocket connection to the Alpaca API and return data in realtime
             async def bar_data_handler(data):
-                # bars data will arrive here
+                # bars data will arrive here.
                 # print(f"Symbol: {data['symbol']}, Open: {data['open']}, Close: {data['close']}")
                 data_values = json.dumps(data)
                 print(data_values)
